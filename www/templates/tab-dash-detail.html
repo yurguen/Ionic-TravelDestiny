@@ -1,0 +1,57 @@
+<ion-view view-title="Place" ng-init="loadMap">
+  <ion-content>
+    
+    <div class="list card">
+      <p  ALIGN="center"><b>Lugares</b></p>
+    <ion-slide-box >
+      <ion-slide ng-repeat="image in images">
+        <div class="container" ng-if="slideVisible($index)" class="scrollCanvas">
+          <ion-scroll class="scrollCanvas" zooming="true" min-zoom="1" direction="xy" locked="false">
+          <div class="im">
+            <div class="image" style="background-image: url( {{image.url}} )"></div>
+            <p  ALIGN="center"><b>{{image.name}}</b></p>
+          </div>
+          </ion-scroll>
+        </div>
+        <div>&nbsp;</div>
+      </ion-slide>
+    </ion-slide-box>
+  <!--ion-item class="item place" ng-repeat="pl in place.image_urls">
+    <h2>Imagen</h2>
+    <img src="{{pl.url}}">
+  </ion-item-->
+
+  </div>
+      <div class="item item-avatar">
+        <img src="data:image/jpg;base64,{{place.photo}}"ng-if="(place.photo != '')">
+        <h2>{{place.name}}</h2>
+        <p>{{place.location}}</p>
+      </div>
+      <div class="description">
+        <b>Descripcion:</b>
+        <p>{{place.content.description}}</p>
+      </div>
+      <div class="datos">
+        <p><b>Nombre Oficial:</b> {{place.official_name}}</p>
+        <p><b>Altura:</b> {{place.height}}</p>
+        <p><b>Superficie:</b> {{place.area}}</p>
+        <p><b>Region:</b> {{place.region}}</p>
+      </div> 
+      <!--div class="item">
+        <img class="full-image" src="{{place.image_urls['300x400'][0].url}}">
+
+        <img src="data:image/jpg;base64,{{place.photo}}" style="max-width: 100%;" ng-if="(place.photo != '')">
+      </div>
+      <a class="item item-icon-left assertive" href="#">
+        <i class="icon ion-ios-cart"></i>
+        Comprar
+      </a-->
+
+    </div>
+    <div class="item map">
+      <p><b>Mapa:</b></p>
+      <div id="map1" class="map" data-tap-disabled="true"></div>
+      <div>&nbsp;</div>
+    </div>
+  </ion-content>
+</ion-view>

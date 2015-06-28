@@ -1,0 +1,46 @@
+<ion-view view-title="Places">
+  <ion-nav-buttons side="right" >
+    <a class="button button-clear button-positive" ng-show="userSignedIn()" href="#/tab/dash-form">
+      <i class="ion-plus-circled"></i>
+      Publicar
+    </a>
+  </ion-nav-buttons> 
+
+  <ion-content>
+
+    <div class="list">
+
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper">
+          <input type="text" ng-model="searchQuery" placeholder="city or place of interest">
+        </label>
+        <button class="button button-small">
+          Search
+        </button>
+      </div>
+
+    </div>
+
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-list>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" collection-repeat="place in places | filter:searchQuery" type="item-text-wrap" href="#/tab/dash/{{place.$id}}">
+        <img src="data:image/jpg;base64,{{place.photo}}"ng-if="(place.photo != '')">
+        <h2>{{place.name}}</h2>
+        <p>Place to visit {{place.place_to_visit.length}}</p>
+        <p>Reviews {{place.reviews.length}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="remove(place)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+      <!--
+      <ion-infinite-scroll on-infinite="addItems()"></ion-infinite-scroll>
+    -->
+    </ion-list>
+  </ion-content>
+</ion-view>
+

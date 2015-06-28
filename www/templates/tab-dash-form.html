@@ -1,0 +1,64 @@
+<ion-view view-title="Add Listing" >
+  <ion-content>
+    <div class="list list-inset">
+      <label class="item item-input ">
+        <b><span class="input-label">Name:</span></b>
+        <input type="text" ng-model="place.name">
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label" >localizacion:</span></b>
+        <input type="text" ng-model="place.location">
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label">Detalle:</span></b>
+        <textarea rows="4" ng-model="place.content.description"></textarea>
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label" >Altura:</span></b>
+        <input type="text" ng-model="place.height">
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label" >Superficie:</span></b>
+        <input type="text" ng-model="place.area">
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label" >Nombre Of.:</span></b>
+        <input type="text" ng-model="place.official_name">
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label" >Region:</span></b>
+        <input type="text" ng-model="place.region">
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label" >Latitud:</span></b>
+        <input type="text" ng-model="place.lat">
+      </label>
+      <label class="item item-input">
+        <b><span class="input-label" >Longitud:</span></b>
+        <input type="text" ng-model="place.long">
+      </label>
+      <label class="item item-input">
+          <button class="button button-icon icon ion-camera" ng-click="takePicture()"> Select picture </button>
+      </label>
+      <img src="data:image/jpg;base64,{{place.photo}}" style="height: 180px;" ng-if="(place.photo != '')">
+
+      <!--div class="form-group" data-ng-repeat="photo in place.place_to_visit">
+        <label class="item item-input" for="photo" ng-show="showPhotoLabel(photo)">
+          <button class="button button-icon icon ion-camera" ng-click="takePicture()"> Select picture </button>
+        </label>
+        <label class="item item-input">
+          <b><span class="input-label" >Name:</span></b>
+          <input type="text" ng-model="photo.name">
+        </label>
+        <button ng-show="showPhotoChoice(choice)" ng-click="addNewChoice()">Add another photo to place</button>
+      </div-->
+      <button class="button button-block button-positive" ng-click="uploadPlace()">
+        Subir!
+      </button>
+    </div>
+
+    <div id="map" data-tap-disabled="true"></div>
+
+  </ion-content>
+</ion-view>
+
